@@ -1,0 +1,19 @@
+{
+  "self_username": "ishanexplanations",
+  "rules": [
+    {
+      "name": "coach",
+      "media_id": "0000000000000001",
+      "keyword": "coach",
+      "posted_at": "2026-10-12T19:50:00Z",
+      "dm_text": "Hey! Here is your link: https://example.com/coach"
+    },
+    {
+      "name": "vocab",
+      "media_id": "0000000000000002",
+      "keyword": "vocab",
+      "posted_at": "2026-10-13T23:26:00Z",
+      "dm_text": "Hey! Here is your link: https://example.com/vocab"
+    }
+  ]
+}

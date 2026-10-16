@@ -1,0 +1,25 @@
+name: Instagram comment-to-DM responder
+on:
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Dry run (send nothing, just show who would get a DM)"
+        type: boolean
+        default: true
+concurrency:
+  group: responder           # never two runs at once
+  cancel-in-progress: false
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run responder
+        env:
+          COMPOSIO_API_KEY: ${{ secrets.COMPOSIO_API_KEY }}
+          RULES_JSON: ${{ secrets.RULES_JSON }}
+        run: |
+          ARGS="--force"
+          [ "${{ inputs.dry_run }}" = "true" ] && ARGS="$ARGS --dry-run"
+          python3 responder.py --backend composio $ARGS
